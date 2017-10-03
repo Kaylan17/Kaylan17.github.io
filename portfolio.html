@@ -27,6 +27,8 @@
                 margin: 0 auto;
                 display: flex;
                 padding: 10px;
+                border-radius: 27px;
+                margin-bottom: 18px;
             }
             nav header {
                 display: flex;
@@ -50,6 +52,7 @@
             main {
                 background: rgb(0, 102, 102);
                 display: flex;
+                border-radius: 27px;
             }
             .content {
                 flex: 1;
@@ -81,21 +84,25 @@
     </head>
 
     <body>
-        <nav>
-            <header>Kaylan's Amazing Website</header>
-            <ul>
-                <li><a href="index.html">Home</a>
-                </li>
-                <li><a href="portfolio.html">Portfolio</a>
-                </li>
-            </ul>
-        </nav>
-        <main>
-            <div class="content">
-                <h1>Portfolio</h1>
-                <ul id="portfolio">
+        <div id="all-contents">
+            <nav>
+                <header>Kaylan's Amazing Website</header>
+                <ul>
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li><a href="portfolio.html">Portfolio</a>
+                    </li>
                 </ul>
-            </div>
-        </main>
+            </nav>
+            <main>
+                <div class="content">
+                    <h1>Portfolio</h1>
+                    <ul id="portfolio">
+                    </ul>
+                </div>
+            </main>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
     </body>
 </html>
